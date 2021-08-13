@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS i need to port to tailwind somehow  */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  color: var(--default-text-grey);
+  font-weight: 500;
+  background: var(--bg-color);
+  height: 100%;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+}
+:root {
+  --light-blue: #4b8bced6;
+  --arcticBlue: #6997ff;
+  --default-text-grey: #6f6d6d;
+  --text-lightgrey: #c4c0c0;
+  --bg-darkgrey: rgb(68, 74, 79);
+  --bg-color: #d8d8d8;
+  --bg-colorDark: #4c4949;
+  --bg-colorDarker: #302f2f;
+  --bg-colorDarkest: #111111;
+  --nav-textColor: #fff;
+  --nav-spanColor: rgba(54, 51, 51, 1);
+  --left: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: grid;
+}
+
+/* Scrollbar css */
+body::-webkit-scrollbar {
+  width: 0.8em;
+  background-color: var(--default-text-grey);
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--bg-colorDark);
+  border: 1px solid var(--bg-colorDark);
+  border-radius: 5px;
+}
+
+.horiz-timeline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 8rem;
+  /* disable text selection */
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  /* THIS IS IMPORTANT here1
+   TO ENABLE SCROLLING TRIMELINE DIV INTO VIEW */
+  overflow-x: hidden;
+  /* position: absolute; //broke vetical line */
+}
+.horiz-timeline ul {
+  list-style-type: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: stretch; /* Default */
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.horiz-timeline ul li {
+  display: block;
+  flex: 0 1 auto; /* Default */
+  list-style-type: none;
+  padding: 0.5rem;
+  background: #cacaca;
+  /* Show on top so vertical lines is bellow it */
+  z-index: 10;
+}
+
+.horiz-timeline ul li:hover {
+  background-color: var(--bg-colorDarker);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 20%;
+  transition: ease-in-out 200ms;
+  cursor: pointer;
+}
+
+/* Animated vertical lines [i got 2 linws top 2 bottom...]*/
+.horiz-timeline ul:after {
+  content: "";
+  border-left: 3px solid var(--bg-colorDarker);
+  position: absolute;
+  opacity: 0;
+  /* vertical line lenght outside of ul */
+  top: 1rem;
+  bottom: 30rem;
+  /* position of vertical line */
+  left: var(--left);
+}
+
+.horiz-timeline ul:hover:after {
+  /* display vertical border in full color */
+  opacity: 1;
+}
+.frost-backdrop-filter {
+  display: inherit;
+  position: absolute;
+  top: 1rem;
+  /* widht (x index of vertical line) */
+  width: var(--left);
+  /* height of vertical line */
+  height: 30rem;
+  border-radius: 6px;
+  /* better option is to take color similar to background  */
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: #d8d8d8d9;
+  box-shadow: 0 0 2000px rgba(255, 255, 255, 0.2);
+  filter: blur(10px);
+  z-index: 999;
+}
+
+/* sample circle without outer circle shape */
+.sun-quote {
+  border-radius: 50%;
+  background-color: #f4953b;
+  width: 2em;
+  height: 2em;
+  padding: 2px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: transform 0.5s ease, border 0.5s ease;
+}
+
+.sun-quote:hover {
+  border: 2px solid #f4953b;
+  transform: scale(1.3);
+}
+
+/* If i want animated vertical line see:https://stackoverflow.com/questions/52346454/how-to-animate-vertical-lines-growing-up-and-down-using-css */
+
+/* Mobile view */
+@media only screen and (max-width: 1205px) {
+}
+@media (max-width: 680px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .accordion-container {
+    display: block;
+  }
+}
