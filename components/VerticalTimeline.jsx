@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import spacexData from "../test_Data.json";
-const timestampData = [...Array(96).keys()];
+import TimelineContent from "./TimelineContent";
+const timestampData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 let scrollLeft;
 let start_x;
@@ -38,24 +38,19 @@ const VerticalTimeline = () => {
   };
 
   const styles = {
-    "--left": left + "px",
+    "--leftOffset": left + "px",
   };
   // Fove frost tol left because it makes ul items unhoverable
   const frostStyle = {
-    "--left": left - 20 + "px",
+    "--leftOffset": left - 20 + "px",
   };
-  useEffect(() => {
-    console.log(spacexData);
-    // return () => {
-    //   cleanup;
-    // };
-  }, []);
 
   return (
     <>
-      <button onClick={(e) => handleBack(e)} style={{ position: "sticky" }}>
+      <button className="border-2 border-blue-400 border-opacity-50" onClick={(e) => handleBack(e)}>
         back
       </button>
+      <p>2020</p>
       <div
         id="timeline-container"
         className="horiz-timeline"
@@ -66,25 +61,17 @@ const VerticalTimeline = () => {
         onMouseLeave={(e) => handleMouseLeave(e)}
       >
         <div>
-          {/* <div style={{ display: "inherit", width: "var(--left)" }}> */}
+          {/* <div style={{ display: "inherit", width: "var(--leftOffset)" }}> */}
           <ul style={styles}>
             {timestampData?.map((timestamp) => (
               <li id={timestamp} key={timestamp} onClick={(e) => handleTimelineItemClick(e)}>
-                {timestamp}
+                <p>{timestamp}</p>
               </li>
             ))}
           </ul>
           {/* </div> */}
         </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <h3>ahahahahhahaha dhhadhahdadadhdhadhahdahd ahd ahd hhad </h3>
-          <h3>ahahahahhahaha dhhadhahdadadhdhadhahdahd ahd ahd hhad </h3>
-          <h3>ahahahahhahaha dhhadhahdadadhdhadhahdahd ahd ahd hhad </h3>
-          <h3>ahahahahhahaha dhhadhahdadadhdhadhahdahd ahd ahd hhad </h3>
-          <h3>ahahahahhahaha dhhadhahdadadhdhadhahdahd ahd ahd hhad </h3>
-          <h3>ahahahahhahaha dhhadhahdadadhdhadhahdahd ahd ahd hhad </h3>
-          <h3>ahahahahhahaha dhhadhahdadadhdhadhahdahd ahd ahd hhad </h3>
-        </div>
+        <TimelineContent />
         <div className="frost-backdrop-filter" style={frostStyle}></div>
       </div>
     </>

@@ -4,20 +4,22 @@ import VerticalTimeline from "../components/VerticalTimeline";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    // <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div>
       <Head>
         <title>_ news</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+      {/* <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center"> */}
+      <main>
         {/* TODO: customize modal into generic modal so its reusable ( i can pass any props into it ,install proptypes) */}
         {/* TOOD: css on <div> above and <main> are overriding my old css so i need to figure out how to refactor it to work  */}
         <VerticalTimeline />
         {/* <Modal />s */}
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
+      {/* <footer className="flex items-center justify-center w-full h-24 border-t">
         <a
           className="flex items-center justify-center"
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -26,7 +28,7 @@ export default function Home() {
         >
           Powered by <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
