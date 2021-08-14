@@ -1,5 +1,5 @@
 //sample for now
-import React, { createContext, useContent, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const ViewportContext = createContext({ width: window.innerWidth });
 
@@ -18,10 +18,10 @@ export const ViewportProvider = ({ children }) => {
   return <ViewportContext.Provider value={{ width }}>{children}</ViewportContext.Provider>;
 };
 
+// export custom hook
 export const useViewport = () => {
   const { width } = useContext(ViewportContext);
   return { width };
 };
-//src :https://stackoverflow.com/questions/61057744/how-to-add-multiple-event-listeners-for-the-same-react-component
-//usage
+//usage of hook
 //const { width } = useViewport()

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Modal from "../components/Modal";
 import VerticalTimeline from "../components/VerticalTimeline";
 
 export default function Home() {
@@ -13,10 +12,8 @@ export default function Home() {
 
       {/* <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center"> */}
       <main>
-        {/* TODO: customize modal into generic modal so its reusable ( i can pass any props into it ,install proptypes) */}
         {/* TOOD: css on <div> above and <main> are overriding my old css so i need to figure out how to refactor it to work  */}
         <VerticalTimeline />
-        {/* <Modal />s */}
       </main>
 
       {/* <footer className="flex items-center justify-center w-full h-24 border-t">

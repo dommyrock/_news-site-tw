@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { BaseProvider } from "../providers/BaseProvider";
 import "../styles/globals.css";
 
 export default function MyApp({ Component, pageProps }) {
@@ -9,7 +10,9 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <main className={"dark"}>
         {/* <Auth.UserContextProvider supabaseClient={supabase}> when im done with base app add auth , or use other provider/like next auth gh/goog/fb....*/}
-        <Component {...pageProps} />
+        <BaseProvider>
+          <Component {...pageProps} />
+        </BaseProvider>
         {/* </Auth.UserContextProvider> */}
       </main>
     </>
