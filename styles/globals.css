@@ -16,6 +16,7 @@ body {
 :root {
   --light-blue: #4b8bced6;
   --arcticBlue: #6997ff;
+  --frost-bg: #d8d8d8d9;
   --default-text-grey: #6f6d6d;
   --text-lightgrey: #c4c0c0;
   --bg-darkgrey: rgb(68, 74, 79);
@@ -99,7 +100,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 700;
   border-radius: 20%;
   transition: ease-in-out 200ms;
-  cursor: pointer;
+  cursor: grab;
 }
 
 /* Animated vertical lines [i got 2 linws top 2 bottom...]*/
@@ -113,11 +114,14 @@ body::-webkit-scrollbar-thumb {
   bottom: 30rem;
   /* position of vertical line */
   left: var(--leftOffset);
+  /* needed so vertical line can be above content, but content selectable */
+  pointer-events: none;
 }
 
 .horiz-timeline ul:hover:after {
   /* display vertical border in full color */
   opacity: 1;
+  z-index: 1;
 }
 .frost-backdrop-filter {
   display: inherit;
@@ -130,7 +134,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 6px;
   /* better option is to take color similar to background  */
   /* background: rgba(255, 255, 255, 0.2); */
-  background: #d8d8d8d9;
+  background: var(--frost-bg);
   box-shadow: 0 0 2000px rgba(255, 255, 255, 0.2);
   filter: blur(10px);
   z-index: 999;

@@ -30,11 +30,11 @@ export default function TimelineContent() {
               {mission.ships?.map((ship, index) => (
                 <div
                   key={index}
-                  className="bg-blue-400 rounded-md py-[.2rem] hover:bg-red-300 z-10"
+                  className="bg-blue-400 rounded-md px-[.1rem] hover:bg-red-300 hover:cursor-pointer max-w-[230px]"
                   style={{ margin: "0.2rem" }}
                   onClick={(e) => handleContentClick(e)}
                 >
-                  <h3>{ship.name}</h3>
+                  <p>{ship.name}</p>
                 </div>
               ))}
             </div>
